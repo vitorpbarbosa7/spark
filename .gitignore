@@ -1,0 +1,13 @@
+venv*
+.venv*
+*venv*
+*.venv*
+venv*/
+*.venv*/
+__pycache__
+.orc
+venv
+.venv
+venv_spark_intellisense
+./.venv_pyspark_intellisense/lib/python3.9/site-packages/pyspark/jars/hadoop-client-runtime-3.3.2.jar
+./.venv_pyspark_intellisense/lib/python3.9/site-packages/pyspark/jars/rocksdbjni-6.20.3.jar
