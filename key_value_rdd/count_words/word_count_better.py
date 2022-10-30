@@ -35,6 +35,12 @@ sortedWordCountScalable = wordCountScalable.sortBy(lambda wordCountValue: wordCo
 show_rdd(sortedWordCountScalable)
 
 # Flipping keys and values
+'''
+Found out why:
+http://stackoverflow.com/questions/15712210/python-3-2-lambda-syntax-error
+Use this code instead if you are using python 3+ :
+wordCountsSorted = wordCounts.map(lambda xy: (xy[1],xy[0])).sortByKey()
+'''
 flippedWordCountScalable = wordCountScalable.map(lambda xy: (xy[1], xy[0]))
 show_rdd(flippedWordCountScalable)
 
