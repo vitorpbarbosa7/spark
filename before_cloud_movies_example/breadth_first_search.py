@@ -27,7 +27,7 @@ def createStartingRDD(data_path:str = ''):
     Reads the data source file and converts to RDD format
     '''
     inputFile = sc.textFile(data_path)
-    return inputfile.map(graph_mapper)
+    return inputFile.map(graph_mapper)
 
 def bfsMap(node):
     '''
@@ -51,13 +51,14 @@ def bfsMap(node):
             if targetCharacterID == connection:
                 hitCounter.add(1)
 
-            newEntry = (newCharacterID ([], newDistance, newColor))
+            newEntry = (newCharacterID, ([], newDistance, newColor))
             results.append(newEntry)
 
         # This node was processed, so, give it a color BLACK
         color = 'BLACK'
 
-    results.collect()
+    print('\nAfter Mapper\n')
+    print(results)
 
     results.append((characterID,(connections, distance, color)))
     return results
@@ -81,8 +82,8 @@ def bfsReduce(data1, data2):
 
     edges1 = data1[0]
     edges2 = data2[0]
-    distance1 = data1[1]
-    distance2 = data2[2]
+    distance1 = int(data1[1])
+    distance2 = int(data2[1])
     color1 = data1[2]
     color2 = data2[2]
 
@@ -98,7 +99,7 @@ def bfsReduce(data1, data2):
         edges.extend(edges2)
 
     # Preserve minimum distance
-    if (distance1 < distance2):
+    if (distance1 < distance):
         distance = distance1
 
     if (distance2 < distance):
@@ -120,11 +121,18 @@ def bfsReduce(data1, data2):
     return_values = (edges, distance, color)
 
     #debug
+    print('\nAfter Reduce\n')
     print(return_values)
 
     return return_values
 
+
+def sum():
+    return 1+1
+
 if __name__ == '__main__':
+
+    print(sum())
 
     conf = SparkConf().setMaster("local").setAppName("BreadthFirstSearch")
     sc = SparkContext(conf = conf)
@@ -136,7 +144,7 @@ if __name__ == '__main__':
     # Accumulator, used for triggering when we find the target character during traversal
     hitCounter = sc.accumulator(0)
 
-    iterationRdd = createStartingRdd('data/marvel_graph_sample.txt')
+    iterationRdd = createStartingRDD('data/marvel_graph.txt')
 
     for iteration in range(0, 10):
         print('Running BFS iteration# ' + str(iteration +1))
@@ -145,7 +153,7 @@ if __name__ == '__main__':
         # Creates new vertices as needed, according to the mapper, for later
         # application of the reducer, which will select the darkest and shortest paths
 
-        mapped = iterationRdd.flatmap(bfsMap)
+        mapped = iterationRdd.flatMap(bfsMap)
 
         # The action of executing the method .count() from the rdd mapped will effectly apply the mapper
         print(f'Processing {str(mapped.count())} values')
