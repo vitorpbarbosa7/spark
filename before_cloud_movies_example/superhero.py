@@ -46,11 +46,13 @@ minimunNumberConnections = groupedConnections.agg(func.min('sum_connections').al
 print(minimunNumberConnections)
 
 obscureSuperHeroesID = groupedConnections.filter(groupedConnections.sum_connections == minimunNumberConnections).select('id')
-obscureSuperHeroesID.show()
 
-obscureSuperHeroesIDList = obscureSuperHeroesID.rdd.flatMap(lambda x: x).collect()
-
-obscureSuperHeroesNames = names.filter(func.col('id').isin(obscureSuperHeroesIDList)).select('name')
+# Join
+obscureSuperHeroesNames = obscureSuperHeroesID.join(
+    names,
+    on = 'id',
+    how = 'left'
+).select('name')
 obscureSuperHeroesNames.show()
 
 # Stop the session
