@@ -27,7 +27,7 @@ def loadMovieNames():
 spark = SparkSession.builder.appName("PopularMovies").getOrCreate()
 
 # Broadcast variable created from the application of a function on hard data, so is HARD DATA ?
-nameDict = spark.sparkContext.broadcast(loadMovieNames())
+movieNamesDicionary = spark.sparkContext.broadcast(loadMovieNames())
 
 # With no header to infer, we create our own Structure
 schema = StructType(
@@ -51,9 +51,9 @@ movieCounts.show()
 def lookupName(movieID):
     '''
     From the Mapper of movies and names, the broadcast variable movieNamesDicionary, 
-    receives the movieID (key) and returns the value from that key (the nameDict)
+    receives the movieID (key) and returns the value from that key, that is, the name (the movieNamesDicionary)
     '''
-    return nameDict.value[movieID]
+    return movieNamesDicionary.value[movieID]
 
 # Creates the User Defined Function (udf)
 lookupNameUDF = func.udf(lookupName)
