@@ -1,3 +1,4 @@
+*.nib
 movie_sims/**/*
 *.dat
 *.zip
