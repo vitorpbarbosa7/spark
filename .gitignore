@@ -21,3 +21,9 @@ venv_spark_intellisense
 ./.venv_pyspark_intellisense/lib/python3.9/site-packages/pyspark/jars/rocksdbjni-6.20.3.jar
 ./.venv_pyspark_intellisense/lib/python3.9/site-packages/pyspark/jars/hadoop-client-runtime-3.3.2.jar
 ./.venv_pyspark_intellisense/lib/python3.9/site-packages/pyspark/jars/rocksdbjni-6.20.3.jar
+./spark_env_data_engineering_docker/data-engineering-spark/data/retail_db_json/order_items/part-r-00000-6b83977e-3f20-404b-9b5f-29376ab1419e
+./spark_env_data_engineering_docker/data-engineering-spark/data/nyse/nyse_data.tar.gz
+./spark_env_data_engineering_docker/data-engineering-spark/data/lca/LCA_FY2010.csv.gz
+./spark_env_data_engineering_docker/data-engineering-spark/data/lca/LCA_FY2011.csv.gz
+./spark_env_data_engineering_docker/data-engineering-spark/data/lca/LCA_FY2012.csv.gz
+./spark_env_data_engineering_docker/data-engineering-spark/data/lca/LCA_FY2013.csv.gz
