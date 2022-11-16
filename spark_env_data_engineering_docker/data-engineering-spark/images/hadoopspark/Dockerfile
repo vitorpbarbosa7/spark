@@ -40,6 +40,10 @@ ENV SPARK3_HOME=/opt/spark3
 ENV PATH=$PATH:${SPARK3_HOME}/bin
 ENV PATH=$PATH:/home/itversity/.local/bin
 
+#custom env vars
+RUN echo "alias pyspark3=/opt/spark3/bin/pyspark" > ~/.bashrc
+RUN
+
 RUN jupyter kernelspec \
     install .kernels/pyspark2 \
     --user

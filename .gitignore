@@ -27,3 +27,14 @@ venv_spark_intellisense
 ./spark_env_data_engineering_docker/data-engineering-spark/data/lca/LCA_FY2011.csv.gz
 ./spark_env_data_engineering_docker/data-engineering-spark/data/lca/LCA_FY2012.csv.gz
 ./spark_env_data_engineering_docker/data-engineering-spark/data/lca/LCA_FY2013.csv.gz
+./spark_env_data_engineering_docker/data-engineering-spark/data/retail_db_json/order_items/part-r-00000-6b83977e-3f20-404b-9b5f-29376ab1419e
+./spark_env_data_engineering_docker/data-engineering-spark/data/nyse/nyse_data.tar.gz
+./spark_env_data_engineering_docker/data-engineering-spark/data/lca/LCA_FY2010.csv.gz
+./spark_env_data_engineering_docker/data-engineering-spark/data/lca/LCA_FY2011.csv.gz
+./spark_env_data_engineering_docker/data-engineering-spark/data/lca/LCA_FY2012.csv.gz
+./spark_env_data_engineering_docker/data-engineering-spark/data/lca/LCA_FY2013.csv.gz
+./.git/objects/6c/d85d56dd7609a8acb7c20bb79ed56d6d63eeb0
+./.git/objects/ee/7433efe10ed815eb405285e6554a30fbc84c26
+./.git/objects/91/f07ead2e244321e079aeaaed8571dd887fb1f6
+./.git/objects/29/a7bcdd9999aa91402024686404b394b0419aa1
+./.git/objects/3b/b8e7be5174345e5fe48f7583de1a4cfcce6dfb

@@ -1,4 +1,23 @@
+# Start
 
+### Run container
+```bash
+docker compose up -d itvdelab
+```
+
+### logs
+```bash
+docker compose logs -f itvdelab
+```
+
+### bash enter
+```bash
+docker compose exec itvdelab bash
+```
+
+
+
+# Inside container
 ### Copy retail_db data from the container to the hdfs file system
 ```hql
 hdfs dfs -put /data/retail_db /user/itversity
@@ -20,6 +39,10 @@ order_status STRING
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 LOCATION '/user/itversity/retail_db/orders';
 ```
+### Execute script via hive
+```bash
+hive -f script_create_database.sql
+```
 
 - check if worked:
 ```hql
@@ -33,7 +56,7 @@ export PYSPARK_PYTHON=python3
 
 ### Create the pyspark3 alias at ~/.bashrc
 ```bash
-alias pyspark3='/opt/spark3/bin/pyspark/'
+alias pyspark3='/opt/spark3/bin/pyspark'
 ```
 
 ### Test the spark by entering the pyspark REPL and typing:

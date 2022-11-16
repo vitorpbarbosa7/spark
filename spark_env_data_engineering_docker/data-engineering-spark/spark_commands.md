@@ -7,3 +7,9 @@ spark.sql('set spark.sql.warehouse.dir').select('value').first()
 ```python
 spark.sql('set').show()
 ```
+
+
+### select from a table
+```python
+spark.sql('select count(*) from retail_db.orders').show()
+```

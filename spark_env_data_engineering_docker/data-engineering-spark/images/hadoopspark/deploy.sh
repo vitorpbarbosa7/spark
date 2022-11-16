@@ -58,10 +58,25 @@ then
   hdfs dfs -put -f /opt/spark3/jars/* /spark3-jars
   ln -s /usr/bin/python3 /usr/bin/python
   jupyter toree install --spark_home=/opt/spark2/ --user
+
+  # vpb commands from startup
+  hdfs dfs -put /data/retail_db /user/itversity
+
+  sudo mkdir ~/scripts
+  hive -f ~/scripts/create_database.sql
+
+  
+
+
 else
   /opt/hadoop/sbin/start-dfs.sh
   /opt/hadoop/sbin/start-yarn.sh
 fi
+
+
+
+
+
 
 sudo chown -R itversity:itversity /home/itversity/itversity-material
 /home/itversity/.local/bin/jupyter lab --ip 0.0.0.0
