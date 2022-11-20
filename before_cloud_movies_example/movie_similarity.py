@@ -64,7 +64,7 @@ spark = SparkSession.builder.appName('MovieSimilarity').master("local[*]").getOr
 movieNameSchema = StructType([
     StructField('movieID', IntegerType(), True),
     StructField('movieTitle', StringType(), True)
-])
+])  
 
 # Broadcast dataset of movieID and movieTitle
 movieNames = spark.read\
