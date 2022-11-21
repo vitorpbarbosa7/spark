@@ -32,5 +32,3 @@ cast(current_timestamp as timestamp) + INTERVAL 30 seconds as add_seconds
 +-----------------------+-----------------------+-----------------------+-----------------------+
 
 
-
-df = Seq(())
