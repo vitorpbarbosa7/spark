@@ -98,6 +98,18 @@ select to_unix_timestamp('2019-04-30 18:18:51', 'yyyyMMdd') as date
 
 
 
+# Using current_date
+
+spark.sql('''
+select cast(split(current_date, '-')[0] as int) as year,
+select cast(split(current_date, '-')[1] as int) as month,
+select cast(split(current_date, '-')[2] as int) as day,
+''')
+
+
+
+
+
 
 
 
